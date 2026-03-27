@@ -1,0 +1,79 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.4">
+  <diagram id="network-infra" name="Architecture Réseau TPI">
+    <mxGraphModel dx="1396" dy="741" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" value="&lt;b&gt;Architecture Réseau - TPI Blanc&lt;/b&gt;&lt;br&gt;Infrastructure Proxmox + Docker" vertex="1">
+          <mxGeometry height="50" width="380" x="370" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cloud_epfl" parent="1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="&lt;b&gt;Réseau EPFL&lt;/b&gt;&lt;br&gt;10.95.x.x" vertex="1">
+          <mxGeometry height="100" width="200" x="440" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="proxmox_box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;dashed=1;dashPattern=5 5;" value="" vertex="1">
+          <mxGeometry height="460" width="800" x="140" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="proxmox_label" parent="1" style="text;html=1;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;" value="&lt;b&gt;Proxmox VE&lt;/b&gt;&lt;br&gt;Hyperviseur&lt;br&gt;IP EPFL : 10.95.48.44&lt;br&gt;Port Forward : :80 → VM1:80 | :443 → VM1:443" vertex="1">
+          <mxGeometry height="70" width="340" x="155" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="bridge" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" value="&lt;b&gt;vmbr1&lt;/b&gt;&lt;br&gt;Bridge interne&lt;br&gt;10.10.10.0/24" vertex="1">
+          <mxGeometry height="60" width="240" x="420" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="vm1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="200" width="220" x="160" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="vm1_title" parent="1" style="text;html=1;align=center;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;" value="&lt;b&gt;VM1 - Reverse Proxy&lt;/b&gt;&lt;br&gt;10.10.10.10" vertex="1">
+          <mxGeometry height="40" width="160" x="195" y="505" as="geometry" />
+        </mxCell>
+        <mxCell id="docker_nginx" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="&lt;b&gt;🐳 Docker&lt;/b&gt;&lt;br&gt;&lt;br&gt;Nginx&lt;br&gt;(reverse proxy)&lt;br&gt;Port 80 / 443" vertex="1">
+          <mxGeometry height="120" width="170" x="185" y="555" as="geometry" />
+        </mxCell>
+        <mxCell id="vm2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="200" width="220" x="430" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="vm2_title" parent="1" style="text;html=1;align=center;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;" value="&lt;b&gt;VM2 - Application&lt;/b&gt;&lt;br&gt;10.10.10.20" vertex="1">
+          <mxGeometry height="40" width="140" x="475" y="505" as="geometry" />
+        </mxCell>
+        <mxCell id="docker_kanboard" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="&lt;b&gt;🐳 Docker&lt;/b&gt;&lt;br&gt;&lt;br&gt;Kanboard&lt;br&gt;(app web)&lt;br&gt;Port 8080" vertex="1">
+          <mxGeometry height="120" width="170" x="455" y="555" as="geometry" />
+        </mxCell>
+        <mxCell id="vm3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="200" width="220" x="700" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="vm3_title" parent="1" style="text;html=1;align=center;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;" value="&lt;b&gt;VM3 - Base de données&lt;/b&gt;&lt;br&gt;10.10.10.30" vertex="1">
+          <mxGeometry height="40" width="170" x="730" y="505" as="geometry" />
+        </mxCell>
+        <mxCell id="docker_postgres" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="&lt;b&gt;🐳 Docker&lt;/b&gt;&lt;br&gt;&lt;br&gt;PostgreSQL&lt;br&gt;(database)&lt;br&gt;Port 5432" vertex="1">
+          <mxGeometry height="120" width="170" x="725" y="555" as="geometry" />
+        </mxCell>
+        <mxCell id="conn_epfl_proxmox" edge="1" parent="1" source="cloud_epfl" style="endArrow=classic;startArrow=classic;html=1;strokeWidth=2;strokeColor=#6c8ebf;fontSize=10;" target="proxmox_box" value="Port forward&lt;br&gt;:80 / :443">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn_bridge_vm1" edge="1" parent="1" source="bridge" style="endArrow=classic;startArrow=classic;html=1;strokeWidth=2;strokeColor=#9673a6;" target="vm1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn_bridge_vm2" edge="1" parent="1" source="bridge" style="endArrow=classic;startArrow=classic;html=1;strokeWidth=2;strokeColor=#9673a6;" target="vm2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn_bridge_vm3" edge="1" parent="1" source="bridge" style="endArrow=classic;startArrow=classic;html=1;strokeWidth=2;strokeColor=#9673a6;" target="vm3" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow_nginx_kanboard" edge="1" parent="1" source="docker_nginx" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#82b366;fontSize=10;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="docker_kanboard" value="HTTP proxy&lt;br&gt;→ :8080">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow_kanboard_postgres" edge="1" parent="1" source="docker_kanboard" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#82b366;fontSize=10;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="docker_postgres" value="SQL&lt;br&gt;→ :5432">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="firewall_note" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="🔒 iptables : DROP tout&lt;br&gt;sauf 10.10.10.20:5432" vertex="1">
+          <mxGeometry height="50" width="170" x="780" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;" value="" vertex="1">
+          <mxGeometry height="60" width="530" x="160" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_text" parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=11;" value="&lt;b&gt;Légende :&lt;/b&gt;  🟢 VM Linux  |  🟡 Container Docker  |  🟣 Bridge interne  |  🔴 Règle firewall  |  🔵 Réseau EPFL" vertex="1">
+          <mxGeometry height="40" width="560" x="165" y="740" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
